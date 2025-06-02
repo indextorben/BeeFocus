@@ -1,0 +1,315 @@
+/* Grundlayout */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background: #c2fff6;
+    transition: background-color 0.3s ease;
+}
+
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.container {
+    max-width: 90%;
+    width: 100%;
+    margin: 30px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    transition: background-color 0.3s ease;
+}
+
+.container.dark-mode {
+    background-color: #444;
+}
+
+.input-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+input, select {
+    flex: 1;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #94ccff;
+    border-radius: 5px;
+    background-color: #94ccff;
+    transition: background-color 0.3s ease;
+}
+
+input.dark-mode, select.dark-mode {
+    background-color: #666;
+    color: white;
+    border: 1px solid #666;
+}
+
+h1 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #000;
+    transition: color 0.3s ease;
+}
+
+h1.dark-mode {
+    color: #fff;
+}
+
+/* Aufgabenliste */
+ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    margin: 0;
+}
+
+li {
+    padding: 10px;
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px;
+    gap: 10px;
+    transition: background-color 0.3s ease;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+}
+
+/* Farbige Hintergründe basierend auf Priorität */
+li.high {
+    background: #ff4c4c;
+    color: white;
+}
+
+li.medium {
+    background: #ffa500;
+    color: white;
+}
+
+li.low {
+    background: #20daa8;
+    color: white;
+}
+
+li.done {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+li > span {
+    flex: 1;
+    text-align: left;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.date {
+    min-width: 150px;
+    text-align: right;
+}
+
+/* Buttons */
+button {
+    padding: 8px 12px;
+    font-size: 1rem;
+    border: none;
+    background: #acc4eb;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    min-width: 40px;
+    text-align: center;
+}
+
+button.dark-mode {
+    background-color: #555;
+    color: white;
+}
+
+button:hover {
+    background: #1d59c4;
+}
+
+button.dark-mode:hover {
+    background: #333;
+}
+
+.edit-btn {
+    background: orange;
+    border: 2px solid black;
+}
+
+.remove-btn {
+    border: 2px solid black;
+}
+
+/* Edit-Form */
+.edit-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #f4f4f9;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.edit-container.dark-mode {
+    background-color: #555;
+}
+
+.edit-container input {
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border 0.3s ease;
+}
+
+.edit-container input:focus {
+    border-color: #4CAF50;
+}
+
+.edit-container button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.edit-container button.dark-mode {
+    background-color: #777;
+}
+
+.edit-container button:hover {
+    background-color: #45a049;
+}
+
+.edit-container .delete-btn {
+    background-color: #cc7070;
+    color: white;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.edit-container .delete-btn.dark-mode {
+    background-color: #a35050;
+}
+
+.edit-container .delete-btn:hover {
+    background-color: #cc7070;
+}
+
+/* Aufgaben abgelaufen */
+.fade-out {
+    opacity: 0.5;
+    transition: opacity 1s ease-out;
+}
+
+/* Notification */
+.notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #ffeb3b;
+    color: #000;
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+.notification.show {
+    opacity: 1;
+}
+
+/* Aufklappbare Hauptaufgabe */
+.collapsible-task {
+    margin: 10px 0;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.collapsible-header {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 10px;
+    background: #ff4c4c;
+    border-radius: 5px;
+    color: white;
+    position: relative;
+}
+
+.collapsible-header::before {
+    content: "▶";
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+.collapsible-header.expanded::before {
+    content: "▼";
+}
+
+.collapsible-subtasks {
+    display: none;
+    margin: 0;
+}
+
+.collapsible-subtasks li {
+    background: #20daa8;
+    margin: 5px 0;
+    padding: 8px;
+    border-radius: 5px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+
+.collapsible-subtasks li span {
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.collapsible-subtasks li button {
+    font-size: 0.9rem;
+    padding: 4px 8px;
+}
+
+.dark-mode .collapsible-header {
+    background-color: #aa3333;
+}
+
+.dark-mode .collapsible-subtasks li {
+    background: #1ba186;
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do-Liste</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Audio-Element für den Piep-Ton -->
+    <audio id="alertSound" src="assets /audio/Piepton.mp3" preload="auto"></audio>
+
+    <div class="container">
+        <h1>📝 To-Do-Liste</h1>
+
+        <div class="input-container">
+            <input class="input" type="text" id="todo-input" placeholder="Neue Aufgabe">
+            <input type="datetime-local" id="todo-date">
+            <button class="button-1" id="add-btn">➕</button>
+            <button class="button-3" id="suggest-subtasks">Aufteilen</button>
+            <button class="button-2" id="toggle-theme">🌙</button>
+            <button class="button-4" id="undo-btn">↩️</button>
+            <button class="button-4" id="redo-btn">↪️</button>
+        </div>
+
+        <ul id="todo-list"></ul>
+    </div>
+
+    <template id="subtask-template">
+        <li class="low" data-priority="3" data-done="false">
+            <span class="subtask-text"></span>
+            <span class="date">🕒 Kein Datum</span>
+            <span class="priority">⭐ Priorität: 3</span>
+            <button class="edit-btn">✏️</button>
+            <button class="remove-btn">🗑️</button>
+        </li>
+    </template>
+
+    <!-- Vorlage für kollabierbare Aufgabenstruktur -->
+    <template id="collapsible-task-template">
+        <div class="collapsible-task">
+            <div class="collapsible-header">Hauptaufgabe</div>
+            <ul class="collapsible-subtasks"></ul>
+        </div>
+    </template>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
