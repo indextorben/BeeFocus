@@ -1,0 +1,30 @@
+{
+  "devDependencies": {
+    "@capacitor/cli": "7.1.0",
+    "react-scripts": "5.0.1"
+  },
+  "dependencies": {
+    "@capacitor/app": "7.0.0",
+    "@capacitor/core": "7.1.0",
+    "@capacitor/haptics": "7.0.0",
+    "@capacitor/ios": "7.1.0",
+    "@capacitor/keyboard": "7.0.0",
+    "@capacitor/status-bar": "7.0.0",
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "node-fetch": "^3.3.2"
+  },
+  "name": "to_do_liste-kopie",
+  "version": "1.0.0",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
